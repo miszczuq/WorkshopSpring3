@@ -31,11 +31,11 @@ public class Person {
 	@Column(name = "id")
 	private Long id;
 
-	@Column(name = "tc_name")
+	@Column(name = "name")
 	private String name;
 
-	@Column(name = "branch")
-	private String surname;
+	@Column(name = "lastname")
+	private String lastname;
 
 	@Column(name = "birthdate")
 	private LocalDate birthdate;
