@@ -23,6 +23,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "person")
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Data
 public class Person {
 

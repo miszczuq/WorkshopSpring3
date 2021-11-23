@@ -5,6 +5,9 @@ import com.skni.workshopspring3.repo.PersonRepository;
 import com.skni.workshopspring3.repo.entity.Address;
 import com.skni.workshopspring3.repo.entity.GenderEnum;
 import com.skni.workshopspring3.repo.entity.Person;
+import com.skni.workshopspring3.service.AddressService;
+import com.skni.workshopspring3.service.PersonService;
+import java.time.LocalDate;
 import java.util.List;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,15 +22,23 @@ public class WorkshopSpring3Application {
 	}
 
 	@Bean
-	CommandLineRunner init(AddressRepository addressRepository, PersonRepository personRepository) {
+	CommandLineRunner init(PersonService personService, AddressService addressService) {
 		return (args) -> {
-			List<Person> personList = personRepository.findAll();
-			System.out.println(personList);
-			List<Address> addressList = addressRepository.findAll();
-			System.out.println(addressList);
+			Address address = addressService.addAddress("Niepodległości 162", "Warszawa", "Polska");
 
-			List<Person> maleInPoland = personRepository.findAllByGenderAndCountry(GenderEnum.MALE.name(), "Polska");
-			System.out.println(maleInPoland);
+			Person person = personService.addPerson(
+					"Adam",
+					"Nowak",
+					LocalDate.of(1996, 05,10),
+					GenderEnum.MALE,
+					address
+			);
+
+			System.out.println(person);
+
+			System.out.println(personService.getAllPeople());
+			System.out.println(personService.deletePersonById(person.getId()));
+			System.out.println(personService.getAllPeople());
 		};
 	}
 
