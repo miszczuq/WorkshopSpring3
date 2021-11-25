@@ -18,7 +18,7 @@ public class WorkshopSpring3Application {
 		return (args) -> {
 			Course course = courseService.addCourse("Informatyka", 3, "SGH", CourseTypeEnum.INZYNIER);
 
-			Student student = studentService.addStudent(
+			Student studentMale = studentService.addStudent(
 					"Adam",
 					"Nowak",
 					LocalDate.of(1996, 05,10),
@@ -26,7 +26,7 @@ public class WorkshopSpring3Application {
 					course
 			);
 
-			Student student = studentService.addStudent(
+			Student studentFemale = studentService.addStudent(
 					"Anna",
 					"Kowalska",
 					LocalDate.of(1993, 10,22),
@@ -34,12 +34,13 @@ public class WorkshopSpring3Application {
 					course
 			);
 
-			System.out.println(student);
+			System.out.println(studentMale);
+			System.out.println(studentFemale);
 
-			System.out.println(student.findAllByLastName("Nowak"));
+			System.out.println(studentService.findAllByLastName("Nowak"));
 
-			System.out.println(student.getStudentByGenderAndByCourseType(GenderEnum.MALE, CourseTypeEnum.INZYNIER));
-			System.out.println(student.getStudentByGenderAndByCourseType(GenderEnum.FEMALE, CourseTypeEnum.LICENCJAT));
+			System.out.println(studentService.getStudentByGenderAndByCourseType(GenderEnum.MALE, CourseTypeEnum.INZYNIER));
+			System.out.println(studentService.getStudentByGenderAndByCourseType(GenderEnum.FEMALE, CourseTypeEnum.LICENCJAT));
 
 			System.out.println(studentService.getAllStudents());
 			System.out.println(studentService.deleteStudentById(student.getId()));
