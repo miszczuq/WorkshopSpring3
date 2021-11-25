@@ -1,4 +1,7 @@
 spring:
+  sql:
+    init:
+      mode: always
   h2:
     console:
       enabled: true
@@ -14,3 +17,4 @@ spring:
         use-new-id-generator-mappings: false
         hbm2ddl:
           auto: create
+    defer-datasource-initialization: true
