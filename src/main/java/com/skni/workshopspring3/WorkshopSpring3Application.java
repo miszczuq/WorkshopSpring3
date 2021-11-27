@@ -1,6 +1,7 @@
 package com.skni.workshopspring3;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import com.skni.workshopspring3.model.Course;
 import com.skni.workshopspring3.model.CourseTypeEnum;
@@ -26,7 +27,7 @@ public class WorkshopSpring3Application {
 			Course course = courseService.addCourse("Informatyka", 3, "SGH", CourseTypeEnum.INZYNIER);
 
 			Student studentMale = studentService.addStudent(
-					"Adam",
+					"Sławomir",
 					"Nowak",
 					LocalDate.of(1996, 05, 10),
 					GenderEnum.MALE,
@@ -48,6 +49,9 @@ public class WorkshopSpring3Application {
 
 			System.out.println(studentService.getStudentByGenderAndByCourseType(GenderEnum.MALE, CourseTypeEnum.INZYNIER));
 			System.out.println(studentService.getStudentByGenderAndByCourseType(GenderEnum.FEMALE, CourseTypeEnum.LICENCJAT));
+
+			System.out.println("=========My example ==========");
+			System.out.println(studentService.getStudentsByFirstnameLengthShorterThan(5));
 
 			System.out.println(studentService.getAllStudents());
 			System.out.println(studentService.deleteStudentById(studentFemale.getId()));

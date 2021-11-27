@@ -47,4 +47,8 @@ public class StudentService {
         studentRepository.deleteById(studentId);
         return deletedStudent;
     }
+
+    public List<Student> getStudentsByFirstnameLengthShorterThan(Integer length){
+        return studentRepository.findAllByFirstnameLengthShorterThan(length);
+    }
 }
