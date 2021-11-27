@@ -29,8 +29,12 @@ public class Course {
     @Column(name = "location")
     private String location;
 
-    @Column(name = "courseType")
+    @Column(name = "course_type")
     @Enumerated(EnumType.STRING)
     private CourseTypeEnum courseType;
+
+    @JoinColumn(name = "student_id")
+    @OneToMany(fetch = FetchType.EAGER)
+    private Set<Student> students;
 
 }
