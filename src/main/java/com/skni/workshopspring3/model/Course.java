@@ -33,8 +33,8 @@ public class Course {
     @Enumerated(EnumType.STRING)
     private CourseTypeEnum courseType;
 
-    @JoinColumn(name = "student_id")
     @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "student_id")
     private Set<Student> students;
 
 }

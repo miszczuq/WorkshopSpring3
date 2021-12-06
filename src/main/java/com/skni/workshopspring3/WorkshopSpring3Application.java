@@ -9,6 +9,7 @@ import com.skni.workshopspring3.model.GenderEnum;
 import com.skni.workshopspring3.model.Student;
 import com.skni.workshopspring3.service.CourseService;
 import com.skni.workshopspring3.service.StudentService;
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -57,5 +58,10 @@ public class WorkshopSpring3Application {
 			System.out.println(studentService.deleteStudentById(studentFemale.getId()));
 			System.out.println(studentService.getAllStudents());
 		};
+	}
+
+	@Bean
+	ModelMapper getModelMapper(){
+		return new ModelMapper();
 	}
 }

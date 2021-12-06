@@ -32,7 +32,6 @@ public class Student {
     @Enumerated(EnumType.STRING)
     private GenderEnum gender;
 
-    @ManyToOne()
-    @JoinColumn(name = "course_id")
+    @ManyToOne
     private Course course;
 }
